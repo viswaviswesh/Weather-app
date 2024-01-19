@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Weather App</title>
+    <meta charset="UTF-8"
+    <title>Weather App </title>
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0"
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"/>
-
-</head>
+    
+    
+</head>     
 <body>
     <div class="container">
         <h1>Weather App</h1>
@@ -14,18 +17,19 @@
             <button type="submit">Get Weather</button>
         </form>
 
+
         <% if (error) { %>
             <p class ="error"><%= error %></p>
         <% } else if (weather) { %>
             <div class ="card">
                 <p>
-                    <i class ="fas fa-map-marker-alt"></i>
+                    <i class='bx bxs-map bx-flip-horizontal' style='color:#d72121' ></i>
                     <%= weather.name%>,<%= weather.sys.country%>
                 </p>
 
                 <p>
                     <i class="fas fa-thermometer-half"></i>    
-                    <%= weather.main.temp %>&deg;F
+                    <%=weather.main.temp %> &deg;c
                 </p>
 
                 <p>

@@ -30,6 +30,7 @@ app.get("/weather", async (req, res) => {
     try {
       const response = await axios.get(apiUrl);
       const weather = response.data;
+      weather.main.temp = convertToFahrenheitToCelsius(weather.main.temp);
       res.render("index.ejs", { weather ,error});
     
     } catch (error) {
@@ -37,6 +38,9 @@ app.get("/weather", async (req, res) => {
       res.render("index.ejs", { error: "Error, Please try again", weather:null});
     }
   });
+  function convertToFahrenheitToCelsius(fahrenheit) {
+    return (Math.round((fahrenheit - 32) * 5/9)); // Round to two decimal places
+}
 
 //start the server and listen on port{3000}
 app.listen(port, () => {
